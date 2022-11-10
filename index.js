@@ -57,22 +57,12 @@ let users = [
         "address": "314 Dunne Place, Bawcomville, Guam, 9053"
     }
 ]
-// const onlyBalance = users.map((users) => {
-//    return  parseFloat(users.balance.slice(1).split(',').join(""))
-// })
-// console.log(onlyBalance)
-// const total = onlyBalance.reduce( (accumulator, currentValue) => accumulator + currentValue)
-// console.log(total)
-// if (onlyBalance >= 2000) {
-//     const onlyPhone = users.map((users) => {
-//         return users.phone.slice(1).split(',').join(" ")
-//     })
-// console.log(onlyPhone)}
+
 users.forEach(users => {
-    const onlyBalance = parseFloat(users.balance.slice(1).split(',').join(""))
+    const onlyBalance = parseFloat(users.balance.replace(/\$|,/g,''))
     // console.log(onlyBalance)
     if (onlyBalance >= 2000) {
-        let onlyPhone = users.phone.slice(1).split(',').join(" ")
+        let onlyPhone = users.phone.replace(/\$|,/g,'')
         console.log(onlyPhone)
     };
 });
@@ -82,4 +72,17 @@ const onlyBalance = users.map((users) => {
 console.log(onlyBalance)
 const total = onlyBalance.reduce((accumulator, currentValue) => accumulator + currentValue)
 console.log('sum: ',total)
+
+// let  onlyPhoneSort = users.filter(item =>
+//     parseFloat(item.balance.replace(/\$|,/g,'')) >= 2000).map((item => item.phone));
+// console.log(onlyPhoneSort)
+// let onlyBalance = users.filter(item => parseFloat(item.balance.replace(/\$|,/g,'')) );
+// let amount = 0;
+// onlyBalance.map(function (item) {
+//     amount += parseFloat(item.balance.replace(/\$|,/g,''));
+// });
+// console.log('Amount', amount);
+
+
+
 
