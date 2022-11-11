@@ -58,16 +58,16 @@ let users = [
     }
 ]
 
-let  sortPhone = users
-    .filter(item => parseFloat(item.balance.replace(/\$|,/g,'')) >= 2000)
+let sortPhone = users
+    .filter(item => parseFloat(item.balance.replace(/\$|,/g, '')) >= 2000)
     .map((item => item.phone));
 console.log(sortPhone)
 let sortBalance = users
-    .filter(item => parseFloat(item.balance.replace(/\$|,/g,"")) )
-    .map((item => item.balance.replace(/\$|,/g,'')));
+    .filter(item => parseFloat(item.balance.replace(/\$|,/g, "")))
+    .map((item => item.balance.replace(/\$|,/g, '')));
 //console.log(sortBalance)
-let sum = sortBalance.map(s => +s).reduce( ( a, c ) => a+(+c), 0 )
-console.log('sum',sum)
+let sum = sortBalance.reduce((a, c) => a + (+c), 0)
+console.log('sum', sum)
 
 
 // arr = users.filter(item => parseFloat(item.balance.replace(/\$|,/g,'')) >= 2000);
